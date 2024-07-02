@@ -61,15 +61,18 @@ const Home = ({ navigation }) => {
             data={items}
             key={numColumns}
             renderItem={({ item }) => (
-              <View style={styles.productContainer}>
-                <Image style={styles.productImage} source={item.image} />
-                <Text>{item.name}</Text>
-                <View>
-                  <Text>{item.description}</Text>
-                  <Text style={styles.itemPrice}>${item.price}</Text>
+              <TouchableOpacity>
+                <View style={styles.productContainer}>
+                  <Image style={styles.productImage} source={item.image} />
+                  <Text>{item.name}</Text>
+                  <View>
+                    <Text>{item.description}</Text>
+                    <Text style={styles.itemPrice}>${item.price}</Text>
+                  </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             )}
+            columnWrapperStyle={styles.columnWrapper}
             keyExtractor={(item) => item.id}
             numColumns={numColumns}
             showsVerticalScrollIndicator={false}
@@ -113,6 +116,10 @@ const styles = StyleSheet.create({
     width: 26,
     height: 26,
   },
+  columnWrapper: {
+    justifyContent: 'space-between',
+    marginBottom: 10, // Optional: to add space between rows
+  },
 
   productContainer: {
     justifyContent: "center",
@@ -128,6 +135,6 @@ const styles = StyleSheet.create({
     color: "red",
   },
   products: {
-    height: 750,
+    height: 760,
   },
 });

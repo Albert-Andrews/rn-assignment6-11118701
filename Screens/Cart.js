@@ -3,18 +3,22 @@ import React from "react";
 
 const Cart = () => {
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.subContainer}>
+        <View />
         {/* cart header */}
-        <View>
-          <View>
+        <View style={styles.header}>
+          <View style={styles.headerTextContainer}>
             <Text>Open</Text>
             <Text>Fashion</Text>
           </View>
-          <Image source={require("../assets/icons8-search.png")} />
+          <Image
+            style={styles.icon}
+            source={require("../assets/icons8-search.png")}
+          />
         </View>
 
-        <View>
+        <View style={styles.checkoutText}>
           <Text>CHECKOUT</Text>
         </View>
 
@@ -26,4 +30,29 @@ const Cart = () => {
 
 export default Cart;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  subContainer: {
+    padding: 10,
+    gap: 20,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    gap: 150,
+  },
+  headerTextContainer: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  icon: {
+    width: 26,
+    height: 26,
+  },
+  checkoutText: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+});
